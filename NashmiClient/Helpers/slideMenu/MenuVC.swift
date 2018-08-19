@@ -19,9 +19,7 @@ enum MenuEnum:String {
     case help
     case logout
 }
-extension MenuEnum:CaseIterable{
-    
-}
+
 class MenuModel{
     var name:String!
     var index:MenuEnum?

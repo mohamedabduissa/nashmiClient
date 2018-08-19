@@ -34,7 +34,7 @@ class SubCategoriesChilds:BaseController {
         
     }
     override func viewDidDisappear(_ animated: Bool) {
-        categories.removeAll()
+
     }
     
     func setup() {
