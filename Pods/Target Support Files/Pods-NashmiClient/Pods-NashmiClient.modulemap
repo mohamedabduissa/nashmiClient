@@ -1,0 +1,6 @@
+framework module Pods_NashmiClient {
+  umbrella header "Pods-NashmiClient-umbrella.h"
+
+  export *
+  module * { export * }
+}

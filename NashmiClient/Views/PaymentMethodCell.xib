@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14269.12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14252.5"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="KGk-i7-Jjw" customClass="PaymentMethodCell" customModule="NashmiClient" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="380" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="380" height="69.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEo-T7-5QU">
+                        <rect key="frame" x="0.0" y="0.0" width="380" height="59.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paypal" translatesAutoresizingMaskIntoConstraints="NO" id="2ah-Ec-Ta8">
+                                <rect key="frame" x="10" y="15" width="21" height="21"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yec-Md-7PA">
+                                <rect key="frame" x="51" y="16.5" width="37.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="sZH-he-4lr">
+                                <rect key="frame" x="349" y="15" width="21" height="21"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yec-Md-7PA" firstAttribute="leading" secondItem="2ah-Ec-Ta8" secondAttribute="trailing" constant="20" id="T6j-jR-Css"/>
+                            <constraint firstItem="2ah-Ec-Ta8" firstAttribute="top" secondItem="zEo-T7-5QU" secondAttribute="top" constant="15" id="Vde-eK-Ijj"/>
+                            <constraint firstAttribute="trailing" secondItem="sZH-he-4lr" secondAttribute="trailing" constant="10" id="att-uM-auY"/>
+                            <constraint firstItem="yec-Md-7PA" firstAttribute="centerY" secondItem="2ah-Ec-Ta8" secondAttribute="centerY" id="e1B-x4-N2o"/>
+                            <constraint firstAttribute="height" constant="59.5" id="mkk-7q-KbW"/>
+                            <constraint firstItem="2ah-Ec-Ta8" firstAttribute="leading" secondItem="zEo-T7-5QU" secondAttribute="leading" constant="10" id="oDB-wP-2JC"/>
+                            <constraint firstItem="sZH-he-4lr" firstAttribute="centerY" secondItem="2ah-Ec-Ta8" secondAttribute="centerY" id="p1q-aa-rES"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="0.69999999999999996"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                <size key="value" width="0.0" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                <color key="value" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bot-kf-hw7">
+                        <rect key="frame" x="0.0" y="59.5" width="380" height="10"/>
+                        <color key="backgroundColor" red="0.94453555349999996" green="0.96068626639999999" blue="0.97309333090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="s47-K0-JGo"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bot-kf-hw7" firstAttribute="top" secondItem="zEo-T7-5QU" secondAttribute="bottom" id="2p8-Lp-637"/>
+                    <constraint firstItem="zEo-T7-5QU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Jd5-z5-kd5"/>
+                    <constraint firstItem="bot-kf-hw7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="VUg-gg-52T"/>
+                    <constraint firstAttribute="trailing" secondItem="bot-kf-hw7" secondAttribute="trailing" id="Zvo-P2-HGA"/>
+                    <constraint firstAttribute="trailing" secondItem="zEo-T7-5QU" secondAttribute="trailing" id="gGX-Ef-45k"/>
+                    <constraint firstAttribute="bottom" secondItem="bot-kf-hw7" secondAttribute="bottom" id="hUk-lH-6Vm"/>
+                    <constraint firstItem="zEo-T7-5QU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nVL-de-9rn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="methodImage" destination="2ah-Ec-Ta8" id="cK1-JJ-EbT"/>
+                <outlet property="methodName" destination="yec-Md-7PA" id="JO5-Bt-wVz"/>
+                <outlet property="successImage" destination="sZH-he-4lr" id="9Du-7I-21k"/>
+            </connections>
+            <point key="canvasLocation" x="55" y="65"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="paypal" width="21" height="21"/>
+        <image name="success" width="21" height="21"/>
+    </resources>
+</document>
