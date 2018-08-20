@@ -10,6 +10,7 @@ import Foundation
 
 protocol BookingSuccessDelegate:class {
     func apply()
+    func successCancel()
 }
 
 class BookingSuccessPOP:BaseController {
@@ -46,6 +47,8 @@ class BookingSuccessPOP:BaseController {
         })
     }
     @IBAction func cancel(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion:  {
+            self.delegate?.successCancel()
+        })
     }
 }

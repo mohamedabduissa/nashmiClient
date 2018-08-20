@@ -58,8 +58,8 @@ class Home:BaseController {
         mapView.settings.myLocationButton = true
         mapHelper?.mapView = mapView
         mapHelper?.delegate = self
-        mapHelper?.currentLocation()
         mapHelper?.markerDataSource = self
+        mapHelper?.currentLocation()
         
         sendRequestBtn.isHidden = true
         

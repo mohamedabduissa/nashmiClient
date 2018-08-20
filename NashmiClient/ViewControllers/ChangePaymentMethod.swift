@@ -20,7 +20,7 @@ class ChangePaymentMethod:BaseController {
     var methods:[PaymentMethodModel] = []
     var methodSelected:Int = 0
     var currentMethod:PaymentsMethod?
-    
+    var fareEstimate:String?
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -39,10 +39,20 @@ class ChangePaymentMethod:BaseController {
     }
     
     func setup() {
+        
         self.setupMethods()
         self.paymentCollection.delegate = self
         self.paymentCollection.dataSource = self
         self.paymentCollection.reloadData()
+        
+        fareEstimation.text = ""
+        guard let fare = self.fareEstimate?.int else{
+            fareEstimation.text = translate("0", "SAR",true)
+            return
+        }
+        let farePlus = fare+15
+        fareEstimation.text = "\(translate(fare.string, "SAR",true)) - \(translate(farePlus.string, "SAR",true))"
+        
     }
     func setupMethods(){
         let method1 = PaymentMethodModel(id: 1, image: #imageLiteral(resourceName: "paypal"), name: translate("paypal"),index:.paypal)
@@ -74,6 +84,7 @@ extension ChangePaymentMethod:UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard var cell = tableView.cell(type: PaymentMethodCell.self, indexPath) else { return UITableViewCell() }
         if  currentMethod == methods[indexPath.row].index  {
+            methodSelected = indexPath.row
             cell.checked = true
         }else{
             cell.checked = false

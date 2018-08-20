@@ -37,7 +37,6 @@ class ReviewTrip:BaseController {
     
     func setup() {
         viewModel = TripViewModel()
-        viewModel?.delegate = self
         rate.rating = 0
         destinationLocation.text = trip?.to_location
         orginLocation.text = trip?.from_location
@@ -45,7 +44,6 @@ class ReviewTrip:BaseController {
     }
     override func bind() {
         viewModel?.message.bind({ (message) in
-            self.backBtn(self)
         })
     }
     
@@ -59,7 +57,10 @@ class ReviewTrip:BaseController {
     
     @IBAction func rateNow(_ sender: Any) {
         if rate.rating != 0 {
-            self.viewModel?.rate(rate: rate.rating.int, comment: comment.text)
+            guard let id = self.trip?.id else { return }
+            self.viewModel?.rate(trip:id,rate: rate.rating.int, comment: comment.text)
+            self.backBtn(self)
+
         }
     }
 }

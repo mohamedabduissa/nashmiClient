@@ -92,14 +92,15 @@ class TripViewModel:ViewModelCore {
             }
         }
     }
-    func rate(rate:Int,comment:String?) {
+    func rate(trip:Int,rate:Int,comment:String?) {
         
         delegate?.startLoading()
         ApiManager.instance.paramaters["rate"] = rate
         if comment != nil {
             ApiManager.instance.paramaters["comment"] = comment!
         }
-        ApiManager.instance.connection(.rate, type: .get) { (response) in
+        let method = api(.rate,[trip])
+        ApiManager.instance.connection(method, type: .get) { (response) in
             self.delegate?.stopLoading()
             let data = BaseModel.convertToModel(response: response)
             self.message.value = translate("success")

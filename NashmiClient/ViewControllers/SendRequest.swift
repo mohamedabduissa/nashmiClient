@@ -29,6 +29,7 @@ class SendRequest:BaseController {
     var orgin:CLLocation! = CLLocation()
     var destination:CLLocation! = CLLocation()
     var selection:CurrentSelection = .orgin
+    var fareEstimate:String?
     /** */
     
     /** trip post **/
@@ -107,8 +108,8 @@ class SendRequest:BaseController {
     }
     
     @IBAction func orginSearch(_ sender: Any) {
-//        self.selection = .orgin
-//        self.mapHelper?.search()
+        self.selection = .orgin
+        self.mapHelper?.search()
     }
     @IBAction func destinationSearch(_ sender: Any) {
         self.selection = .destination
@@ -168,6 +169,7 @@ extension SendRequest {
     }
     func bindEstimate(){
         viewModel?.estimateTrip.bind({ (trip) in
+            self.fareEstimate = trip.fare_estimation
             self.fareEstimation.text = trip.fare_estimation
         })
     }
@@ -295,6 +297,7 @@ extension SendRequest:ChangePaymentDelegate {
     @IBAction func changePayment(_ sender: Any) {
         let vc = pushViewController(ChangePaymentMethod.self)
         vc.delegate = self
+        vc.fareEstimate = self.fareEstimate
         vc.currentMethod = payment
         push(vc)
     }
@@ -311,6 +314,10 @@ extension SendRequest:BookingSuccessDelegate {
         let vc = pushViewController(ConfirmRequest.self)
         vc.orgin = orginLocation.text
         vc.destination = destinationLocation.text
+        push(vc)
+    }
+    func successCancel(){
+        let vc = pushViewController(Home.self)
         push(vc)
     }
 }
